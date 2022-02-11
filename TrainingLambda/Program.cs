@@ -63,12 +63,15 @@ namespace TrainingLambda
                 Console.WriteLine(sorted.Name);
 
             Console.WriteLine("\nDisplay all rodents");
-            //var rodents = animals.Where(x => x.Type == "mouse" || "hamster").ToList(); //not working
-            var mouses = animals.Where(x => x.Type == "mouse").ToArray();
-            var hamsters = animals.Where(x => x.Type == "hamster").ToArray();
-            var rodents = mouses.Concat(hamsters);
-            foreach (var rodent in rodents)
-                Console.WriteLine(rodent.Name);
+            var rodents = animals.Where(x => x.Type == "mouse" || x.Type == "hamster").ToList();
+            rodents.ForEach(x => Console.WriteLine(x.Name));
+
+            // another solution
+            //var hamsters = animals.Where(x => x.Type == "hamster").ToArray();
+            //var mouses = animals.Where(x => x.Type == "mouses").ToArray();
+            //var rodents = mouses.Concat(hamsters);
+            //foreach (var rodent in rodents)
+            //    Console.WriteLine(rodent.Name)
         }
     }
 }
